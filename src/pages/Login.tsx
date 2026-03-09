@@ -1,4 +1,5 @@
-import { FormEvent, KeyboardEvent, useState } from 'react'
+import type { FormEvent, KeyboardEvent } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { loginUser } from '../services/auth'
 

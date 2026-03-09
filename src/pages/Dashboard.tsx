@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react'
 import { useEffect, useState } from 'react'
 import {
   CartesianGrid,
@@ -131,7 +132,7 @@ const buildRevenueChartData = (
 
 const RevenueOverviewChart = ({
   revenueOverview,
-}: RevenueOverviewChartProps): JSX.Element => {
+}: RevenueOverviewChartProps): ReactElement => {
   const data = buildRevenueChartData(revenueOverview)
 
   if (!data.length) {
@@ -298,7 +299,7 @@ const buildPickupTrendChartData = (
 
 const PickupTrendChart = ({
   pickupTrend,
-}: PickupTrendChartProps): JSX.Element => {
+}: PickupTrendChartProps): ReactElement => {
   const data = buildPickupTrendChartData(pickupTrend)
 
   if (!data.length) {

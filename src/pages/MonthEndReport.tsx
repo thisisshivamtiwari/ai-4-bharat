@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react'
 import { useCallback, useEffect, useState } from 'react'
 import type { MonthEndReportData } from '../services/reports'
 import { fetchMonthEndReport } from '../services/reports'
@@ -35,7 +36,7 @@ const getDefaultMonthRange = (): { start: string; end: string } => {
   return { start, end }
 }
 
-const MonthEndReport = (): JSX.Element => {
+const MonthEndReport = (): ReactElement => {
   const defaultRange = getDefaultMonthRange()
   const [startDate, setStartDate] = useState(defaultRange.start)
   const [endDate, setEndDate] = useState(defaultRange.end)

@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react'
 import { useCallback, useEffect, useState } from 'react'
 import type { RateSuggestion, RateSuggestionDay } from '../services/dashboard'
 import { fetchRateSuggestion } from '../services/dashboard'
@@ -44,7 +45,7 @@ const CalendarGrid = ({
   rateSuggestion,
   selectedDay,
   onSelectDay,
-}: PricingCalendarProps): JSX.Element => {
+}: PricingCalendarProps): ReactElement => {
   const firstDateInData =
     rateSuggestion.suggestedRate.length > 0
       ? rateSuggestion.suggestedRate[0].date
@@ -200,7 +201,7 @@ type DayDetailPanelProps = {
   onClose: () => void
 }
 
-const DayDetailPanel = ({ day, onClose }: DayDetailPanelProps): JSX.Element => {
+const DayDetailPanel = ({ day, onClose }: DayDetailPanelProps): ReactElement => {
   return (
     <div className="rounded-2xl border border-slate-700/80 bg-slate-900/60 shadow-xl shadow-slate-950/50 backdrop-blur-sm overflow-hidden">
       <div className="border-b border-slate-700/80 bg-slate-800/40 px-4 py-3 flex items-start justify-between gap-2">
@@ -312,7 +313,7 @@ const DayDetailPanel = ({ day, onClose }: DayDetailPanelProps): JSX.Element => {
   )
 }
 
-const PricingCalendar = (): JSX.Element => {
+const PricingCalendar = (): ReactElement => {
   const [rateSuggestion, setRateSuggestion] = useState<RateSuggestion | null>(
     null,
   )
