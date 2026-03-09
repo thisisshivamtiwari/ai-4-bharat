@@ -180,19 +180,7 @@ const Login = () => {
             {isSubmitting ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
-
-        <footer className="mt-6 flex items-center justify-between text-xs text-slate-500">
-          <p className="text-left">
-            New here?{' '}
-            <button
-              type="button"
-              className="font-medium text-emerald-300 hover:text-emerald-200 underline-offset-2 hover:underline"
-              aria-label="Create a new account"
-            >
-              Create an account
-            </button>
-          </p>
-
+        <footer className="mt-6 flex items-center justify-end text-xs text-slate-500">
           <Link
             to="/"
             tabIndex={0}
@@ -201,7 +189,7 @@ const Login = () => {
             className="font-medium text-slate-400 hover:text-slate-200 underline-offset-2 hover:underline"
           >
             Back home
-          </Link>
+         </Link>
         </footer>
       </main>
     </div>
