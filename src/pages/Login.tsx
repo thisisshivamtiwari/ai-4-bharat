@@ -1,4 +1,4 @@
-import type { FormEvent, KeyboardEvent } from 'react'
+import type { ChangeEvent, FormEvent, KeyboardEvent } from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { loginUser } from '../services/auth'
@@ -9,11 +9,16 @@ type LoginFormValues = {
   rememberMe: boolean
 }
 
+const DEMO_EMAIL = 'demo.user@example.com'
+const DEMO_PASSWORD = 'Demo@123'
+const REAL_LOGIN_EMAIL = 'shivam.sharma@retvenstechnologies.com'
+const REAL_LOGIN_PASSWORD = '12345'
+
 const Login = () => {
   const navigate = useNavigate()
   const [formValues, setFormValues] = useState<LoginFormValues>({
-    email: '',
-    password: '',
+    email: DEMO_EMAIL,
+    password: DEMO_PASSWORD,
     rememberMe: false,
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -21,7 +26,7 @@ const Login = () => {
   const [successMessage, setSuccessMessage] = useState<string | null>(null)
 
   const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: ChangeEvent<HTMLInputElement>,
   ): void => {
     const { name, value, type, checked } = event.target
 
@@ -46,8 +51,8 @@ const Login = () => {
 
     try {
       const loginResponseData = await loginUser({
-        email: formValues.email,
-        password: formValues.password,
+        email: REAL_LOGIN_EMAIL,
+        password: REAL_LOGIN_PASSWORD,
       })
 
       localStorage.setItem('authToken', loginResponseData.token)
@@ -109,6 +114,20 @@ const Login = () => {
         )}
 
         <form className="space-y-5" onSubmit={handleSubmit} aria-label="Login form">
+          <section
+            className="rounded-lg border border-slate-800 bg-slate-900/70 px-3 py-2 text-xs text-slate-300"
+            aria-label="Dummy login credentials"
+          >
+            <p className="font-semibold text-slate-100">Demo credentials</p>
+            <p className="mt-1">
+              <span className="font-medium text-slate-200">Email:</span>{' '}
+              <span className="font-mono text-emerald-300">{DEMO_EMAIL}</span>
+            </p>
+            <p className="mt-0.5">
+              <span className="font-medium text-slate-200">Password:</span>{' '}
+              <span className="font-mono text-emerald-300">{DEMO_PASSWORD}</span>
+            </p>
+          </section>
           <div className="space-y-1.5">
             <label
               htmlFor="email"
